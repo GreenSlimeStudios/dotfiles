@@ -1,0 +1,208 @@
+-------------------------------
+--  "Zenburn" awesome theme  --
+--    By Adrian C. (anrxc)   --
+-------------------------------
+
+local themes_path   = require("gears.filesystem").get_themes_dir()
+local dpi           = require("beautiful.xresources").apply_dpi
+local gears         = require("gears")
+local lain          = require("lain")
+local awful         = require("awful")
+local wibox         = require("wibox")
+local dpi           = require("beautiful.xresources").apply_dpi
+
+-- {{{ Main
+local theme         = {}
+theme.wallpaper     = themes_path .. "zenburn-background.png"
+-- }}}
+
+-- {{{ Styles
+theme.font          = "sans 8"
+
+theme.bg_normal     = "#111111"
+theme.bg_focus      = "#111111"
+theme.bg            = "#17181c"
+theme.fg            = "#cecfdf"
+theme.red           = "#be2720"
+theme.lred          = "#e46c67"
+theme.green         = "#67b85d"
+theme.lgreen        = "#94dc8b"
+theme.yellow        = "#cecd6b"
+theme.lyellow       = "#e9e9a3"
+theme.blue          = "#237de1"
+theme.lblue         = "#7cb1ec"
+theme.magenta       = "#936bc8"
+theme.lmagenta      = "#b99be2"
+theme.cyan          = "#29adc2"
+theme.lcyan         = "#7cd3e0"
+theme.disabled      = "#7c7d87"
+
+-- {{{ Colors
+theme.fg_normal     = "#DCDCCC"
+theme.fg_focus      = "#DCDCCC"
+theme.fg_urgent     = "#CC9393"
+theme.bg_normal     = "#3F3F3F"
+theme.bg_focus      = "#1E2320"
+theme.bg_urgent     = "#1E2320"
+-- theme.bg_urgent  = "#3F3F3F"
+
+theme.bg_systray    = theme.bg_normal
+-- }}}
+
+-- {{{ Borders
+theme.useless_gap   = dpi(0)
+theme.border_width  = dpi(2)
+theme.border_normal = "#3F3F3F"
+theme.border_focus  = "#6F6F6F"
+theme.border_marked = "#CC9393"
+-- }}}
+
+-- {{{ Titlebars
+-- theme.titlebar_bg_focus  = "#3F3F3F"
+-- theme.titlebar_bg_normal = "#3F3F3F"
+-- }}}
+
+-- There are other variable sets
+-- overriding the default one when
+-- defined, the sets are:
+-- [taglist|tasklist]_[bg|fg]_[focus|urgent|occupied|empty|volatile]
+-- titlebar_[normal|focus]
+-- tooltip_[font|opacity|fg_color|bg_color|border_width|border_color]
+-- Example:
+--theme.taglist_bg_focus = "#CC9393"
+-- }}}
+
+-- {{{ Widgets
+-- You can add as many variables as
+-- you wish and access them by using
+-- beautiful.variable in your rc.lua
+--theme.fg_widget        = "#AECF96"
+--theme.fg_center_widget = "#88A175"
+--theme.fg_end_widget    = "#FF5656"
+--theme.bg_widget        = "#494B4F"
+--theme.border_widget    = "#3F3F3F"
+-- }}}
+
+-- theme.fg_normal                                 = "#BBBBBB"
+-- theme.fg_focus                                  = "#78A4FF"
+-- theme.bg_normal                                 = "#111111"
+-- theme.bg_focus                                  = "#111111"
+-- theme.fg_urgent                                 = "#000000"
+-- theme.bg_urgent                                 = "#FFFFFF"
+-- theme.border_width                              = dpi(1)
+-- theme.border_normal                             = "#141414"
+-- theme.border_focus                              = "#93B6FF"
+-- theme.taglist_fg_focus                          = "#FFFFFF"
+-- theme.taglist_bg_focus                          = "#111111"
+-- theme.taglist_bg_normal                         = "#111111"
+-- theme.titlebar_bg_normal                        = "#191919"
+-- theme.titlebar_bg_focus                         = "#262626"
+
+
+-- {{{ Mouse finder
+theme.mouse_finder_color                        = "#CC9393"
+-- mouse_finder_[timeout|animate_timeout|radius|factor]
+-- }}}
+
+-- {{{ Menu
+-- Variables set for theming the menu:
+-- menu_[bg|fg]_[normal|focus]
+-- menu_[border_color|border_width]
+theme.menu_height                               = dpi(15)
+theme.menu_width                                = dpi(100)
+-- }}}
+
+-- {{{ Icons
+-- {{{ Taglist
+theme.taglist_squares_sel                       = themes_path .. "zenburn/taglist/squarefz.png"
+theme.taglist_squares_unsel                     = themes_path .. "zenburn/taglist/squarez.png"
+--theme.taglist_squares_resize = "false"
+-- }}}
+
+-- {{{ Misc
+theme.awesome_icon                              = themes_path .. "zenburn/awesome-icon.png"
+theme.menu_submenu_icon                         = themes_path .. "zenburn/default/submenu.png"
+-- }}}
+
+-- {{{ Layout
+theme.layout_tile                               = themes_path .. "zenburn/layouts/tile.png"
+theme.layout_tileleft                           = themes_path .. "zenburn/layouts/tileleft.png"
+theme.layout_tilebottom                         = themes_path .. "zenburn/layouts/tilebottom.png"
+theme.layout_tiletop                            = themes_path .. "zenburn/layouts/tiletop.png"
+theme.layout_fairv                              = themes_path .. "zenburn/layouts/fairv.png"
+theme.layout_fairh                              = themes_path .. "zenburn/layouts/fairh.png"
+theme.layout_spiral                             = themes_path .. "zenburn/layouts/spiral.png"
+theme.layout_dwindle                            = themes_path .. "zenburn/layouts/dwindle.png"
+theme.layout_max                                = themes_path .. "zenburn/layouts/max.png"
+theme.layout_fullscreen                         = themes_path .. "zenburn/layouts/fullscreen.png"
+theme.layout_magnifier                          = themes_path .. "zenburn/layouts/magnifier.png"
+theme.layout_floating                           = themes_path .. "zenburn/layouts/floating.png"
+theme.layout_cornernw                           = themes_path .. "zenburn/layouts/cornernw.png"
+theme.layout_cornerne                           = themes_path .. "zenburn/layouts/cornerne.png"
+theme.layout_cornersw                           = themes_path .. "zenburn/layouts/cornersw.png"
+theme.layout_cornerse                           = themes_path .. "zenburn/layouts/cornerse.png"
+-- }}}
+
+-- {{{ Titlebar
+theme.titlebar_close_button_focus               = themes_path .. "zenburn/titlebar/close_focus.png"
+theme.titlebar_close_button_normal              = themes_path .. "zenburn/titlebar/close_normal.png"
+
+theme.titlebar_minimize_button_normal           = themes_path .. "default/titlebar/minimize_normal.png"
+theme.titlebar_minimize_button_focus            = themes_path .. "default/titlebar/minimize_focus.png"
+
+theme.titlebar_ontop_button_focus_active        = themes_path .. "zenburn/titlebar/ontop_focus_active.png"
+theme.titlebar_ontop_button_normal_active       = themes_path .. "zenburn/titlebar/ontop_normal_active.png"
+theme.titlebar_ontop_button_focus_inactive      = themes_path .. "zenburn/titlebar/ontop_focus_inactive.png"
+theme.titlebar_ontop_button_normal_inactive     = themes_path .. "zenburn/titlebar/ontop_normal_inactive.png"
+
+theme.titlebar_sticky_button_focus_active       = themes_path .. "zenburn/titlebar/sticky_focus_active.png"
+theme.titlebar_sticky_button_normal_active      = themes_path .. "zenburn/titlebar/sticky_normal_active.png"
+theme.titlebar_sticky_button_focus_inactive     = themes_path .. "zenburn/titlebar/sticky_focus_inactive.png"
+theme.titlebar_sticky_button_normal_inactive    = themes_path .. "zenburn/titlebar/sticky_normal_inactive.png"
+
+theme.titlebar_floating_button_focus_active     = themes_path .. "zenburn/titlebar/floating_focus_active.png"
+theme.titlebar_floating_button_normal_active    = themes_path .. "zenburn/titlebar/floating_normal_active.png"
+theme.titlebar_floating_button_focus_inactive   = themes_path .. "zenburn/titlebar/floating_focus_inactive.png"
+theme.titlebar_floating_button_normal_inactive  = themes_path .. "zenburn/titlebar/floating_normal_inactive.png"
+
+theme.titlebar_maximized_button_focus_active    = themes_path .. "zenburn/titlebar/maximized_focus_active.png"
+theme.titlebar_maximized_button_normal_active   = themes_path .. "zenburn/titlebar/maximized_normal_active.png"
+theme.titlebar_maximized_button_focus_inactive  = themes_path .. "zenburn/titlebar/maximized_focus_inactive.png"
+theme.titlebar_maximized_button_normal_inactive = themes_path .. "zenburn/titlebar/maximized_normal_inactive.png"
+-- }}}
+-- }}}
+--
+--
+--
+
+theme.font                                      = "Terminus 10.5"
+theme.taglist_font                              = "Icons 10"
+theme.fg_normal                                 = "#D7D7D7"
+-- theme.fg_focus                                  = "#F6784F"
+theme.bg_normal                                 = "#060606"
+-- theme.bg_focus                                  = "#060606"
+theme.fg_urgent                                 = "#CC9393"
+-- theme.bg_urgent                                 = "#2A1F1E"
+theme.border_width                              = dpi(1)
+theme.border_normal                             = "#0E0E0E"
+-- theme.border_focus                              = "#f90d55"
+theme.taglist_fg_focus                          = "#f90d55"
+theme.taglist_bg_focus                          = "#060606"
+theme.tasklist_fg_focus                         = "#f90d55"
+theme.tasklist_bg_focus                         = "#060606"
+theme.menu_height                               = dpi(16)
+theme.menu_width                                = dpi(130)
+theme.tasklist_plain_task_name                  = true
+theme.tasklist_disable_icon                     = true
+theme.useless_gap                               = 0
+
+theme.border_focus                              = theme.lmagenta;
+theme.border_normal                             = theme.lmagenta;
+
+
+
+
+
+return theme
+
+-- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80
