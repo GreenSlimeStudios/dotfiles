@@ -1,0 +1,7 @@
+** Message: 23:20:07.521: configModel.vala:297: Loading Config: "/etc/xdg/swaync/config.json"
+** Message: 23:20:07.521: functions.vala:98: Loading CSS: "/etc/xdg/swaync/style.css"
+** Message: 23:20:07.521: functions.vala:112: Loading CSS: "/etc/xdg/swaync/style.css"
+** Message: 23:20:07.524: factory.vala:44: Loading widget: inhibitors
+** Message: 23:20:07.524: factory.vala:44: Loading widget: title
+** Message: 23:20:07.524: factory.vala:44: Loading widget: dnd
+Could not acquire notification name. Please close any other notification daemon like mako or dunst

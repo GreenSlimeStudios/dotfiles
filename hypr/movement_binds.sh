@@ -1,4 +1,4 @@
-export IS_LAPTOP=true
+export IS_LAPTOP=false
 
 if [ "$IS_LAPTOP" == "true" ]; then
     # Only bind keys if the variable is true
